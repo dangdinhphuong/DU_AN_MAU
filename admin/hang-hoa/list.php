@@ -36,7 +36,7 @@ if (strlen($MESSAGE)) {
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody><?php if ($count1 > 0) { ?>
             <?php
             foreach ($items as $item) {
                 extract($item);
@@ -68,6 +68,9 @@ if (strlen($MESSAGE)) {
             <?php
             }
             ?>
+            <?php
+            }
+            ?>
         </tbody>
         <tfoot>
             <tr>
@@ -80,16 +83,17 @@ if (strlen($MESSAGE)) {
 
 
 
-
+                <?php if(isset($_SESSION['total_page_loai'])&& $_SESSION['total_page_loai']>1) {?>
                 <td colspan="6">
                     <a href="?btn_list&page_no=1&cate_id=<?= $items[0]['cate_id'] ?>" style="padding: 10px; text-decoration: none;border: 1px solid black;border-radius: 3px; color: black ;font-size: 13px">|&lt;</a>
                     <a href="?btn_list&page_no=<?= $_SESSION['prev_page_loai'] ?>&cate_id=<?= $items[0]['cate_id'] ?>" style="padding: 10px; text-decoration: none;border: 1px solid black;border-radius: 3px; color: black ;font-size: 13px">
                         <<<</a> <?php for ($i = 1; $i <= $_SESSION['total_page_loai']; $i++) { ?> <a href="?btn_list&page_no=<?= $i ?>&cate_id=<?= $items[0]['cate_id'] ?>" style="padding: 10px; text-decoration: none;border: 1px solid black;border-radius: 3px; color: black ;font-size: 13px"><?php echo "$i" ?>
                     </a>
-                <?php } ?>
+                    <?php }  ?>
                 <a href="?btn_list&page_no=<?= $_SESSION['next_page_loai'] ?>&cate_id=<?= $items[0]['cate_id'] ?>" style="padding: 10px; text-decoration: none;border: 1px solid black;border-radius: 3px; color: black ;font-size: 13px">>>></a>
                 <a href="?btn_list&page_no=<?= $_SESSION['total_page_loai'] ?>&cate_id=<?= $items[0]['cate_id'] ?>" style="padding: 10px; text-decoration: none;border: 1px solid black;border-radius: 3px; color: black ;font-size: 13px">>|</a>
                 </td>
+                <?php } unset($_SESSION['total_page_loai']); ?>
             </tr>
         </tfoot>
     </table>

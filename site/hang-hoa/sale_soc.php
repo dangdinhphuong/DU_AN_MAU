@@ -1,4 +1,4 @@
-     <!-- menu -->
+     <!-- menu --><?php $_SESSION['a'] =$_SERVER['REQUEST_URI']?> 
      <section id="menu">
       <div class="container">
         <div class="menu-area">

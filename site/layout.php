@@ -18,6 +18,9 @@ if (!isset($_SESSION['user'])) {
     $image2 = "<img src='../../content/images/users/$a' alt='User image' class='dropdown-toggle' data-toggle='user-menu'style=' width: 39px;height: 39px;border-radius: 50%;'>";
     $login="<a class='dropdown-item d-flex justify-content-start' href='$ADMIN_URL/hang-hoa/logout.php'><div><i class='fas fa-sign-out-alt'></i ></div><span>Đăng Xuất</span></a>";
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -224,9 +227,10 @@ if (!isset($_SESSION['user'])) {
                             <!-- search box -->
                             <div class="aa-search-box">
                                 <form action="<?= $SITE_URL ?>/hang-hoa?keywords=<?php $keywords ?>" method="get">
-                                    <input type="text" name="keywords" id="" placeholder="Nhập từ khóa sản phẩm">
+                                    <input type="text" name="keywords" id="" value="<?= isset($_SESSION['keyword'])?$_SESSION['keyword']:""?>" placeholder="Nhập từ khóa sản phẩm">
                                     <button type="submit"><span class="fa fa-search"></span></button>
                                 </form>
+                                <?php ?>
                             </div>
                             <!-- / search box -->
                         </div>
@@ -313,7 +317,7 @@ if (!isset($_SESSION['user'])) {
                                                         <font style="vertical-align: inherit;">Trang Chủ</font>
                                                     </font>
                                                 </a></li>
-                                            <li><a href="#">
+                                            <li><a href="<?= $SITE_URL?>/trang-chinh/index.php?gioi-thieu">
                                                     <font style="vertical-align: inherit;">
                                                         <font style="vertical-align: inherit;">Giới thiệu</font>
                                                     </font>
@@ -328,7 +332,7 @@ if (!isset($_SESSION['user'])) {
                                                         <font style="vertical-align: inherit;">Góp ý</font>
                                                     </font>
                                                 </a></li>
-                                            <li><a href="#">
+                                            <li><a href="<?= $SITE_URL?>/trang-chinh/index.php?lien-he">
                                                     <font style="vertical-align: inherit;">
                                                         <font style="vertical-align: inherit;">Liên hệ chúng tôi</font>
                                                     </font>
@@ -336,20 +340,6 @@ if (!isset($_SESSION['user'])) {
                                         </ul>
                                     </div>
                                 </div>
-                                <!--                                <div class="col-md-3 col-sm-6">-->
-                                <!--                                    <div class="aa-footer-widget">-->
-                                <!--                                        <div class="aa-footer-widget">-->
-                                <!--                                            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kiến thức cơ bản</font></font></h3>-->
-                                <!--                                            <ul class="aa-footer-nav">-->
-                                <!--                                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chuyển</font></font></a></li>-->
-                                <!--                                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lợi nhuận</font></font></a></li>-->
-                                <!--                                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dịch vụ</font></font></a></li>-->
-                                <!--                                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giảm giá</font></font></a></li>-->
-                                <!--                                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đề nghị đặc biệt</font></font></a></li>-->
-                                <!--                                            </ul>-->
-                                <!--                                        </div>-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
                                 <div class="col-md-4 col-sm-6">
                                     <div class="aa-footer-widget">
                                         <div class="aa-footer-widget">

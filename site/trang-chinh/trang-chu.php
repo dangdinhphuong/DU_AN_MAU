@@ -1,3 +1,4 @@
+<?php $_SESSION['a'] =$_SERVER['REQUEST_URI']?> 
    <!-- menu -->
    <section id="menu">
        <div class="container">
@@ -140,7 +141,7 @@
                                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                            <div class="carousel-inner">
                                                <?php
-                                                foreach ($loai_hang as $item) {
+                                                foreach ( $sap_xep as $item) {
                                                     extract($item);
                                                 ?>
                                                    <div class="carousel-item <?= $acitve ?>" style="background:<?= $background ?>">
@@ -169,25 +170,25 @@
 
                                    <div class="aa-single-promo-right ">
                                        <div class="aa-promo-banner">
-                                           <img src="../../content/images/voucher/<?= $loai_hang[0]['voucher_img'] ?>" alt="img">
+                                           <img src="../../content/images/voucher/<?=  $sap_xep[0]['voucher_img'] ?>" alt="img">
                                        </div>
                                    </div>
                                    <div class="aa-single-promo-right ">
                                        <div class="aa-promo-banner">
-                                           <img src="../../content/images/voucher/<?= $loai_hang[1]['voucher_img'] ?>" alt="img">
+                                           <img src="../../content/images/voucher/<?=  $sap_xep[1]['voucher_img'] ?>" alt="img">
                                        </div>
                                    </div>
 
 
                                    <div class="aa-single-promo-right ">
                                        <div class="aa-promo-banner">
-                                           <img src="../../content/images/voucher/<?= $loai_hang[2]['voucher_img'] ?>" alt="img">
+                                           <img src="../../content/images/voucher/<?=  $sap_xep[2]['voucher_img'] ?>" alt="img">
                                        </div>
                                    </div>
 
                                    <div class="aa-single-promo-right ">
                                        <div class="aa-promo-banner">
-                                           <img src="../../content/images/voucher/<?= $loai_hang[5]['voucher_img'] ?>" alt="img">
+                                           <img src="../../content/images/voucher/<?=  $sap_xep[5]['voucher_img'] ?>" alt="img">
                                        </div>
                                    </div>
 
@@ -198,20 +199,20 @@
 
                                    <div class="aa-single-promo-right ">
                                        <div class="aa-promo-banner">
-                                           <img src="../../content/images/voucher/<?= $loai_hang[4]['voucher_img'] ?>" alt="img">
+                                           <img src="../../content/images/voucher/<?=  $sap_xep[4]['voucher_img'] ?>" alt="img">
                                        </div>
                                    </div>
 
                                    <div class="aa-single-promo-right ">
                                        <div class="aa-promo-banner">
-                                           <img src="../../content/images/voucher/<?= $loai_hang[3]['voucher_img'] ?>" alt="img">
+                                           <img src="../../content/images/voucher/<?=  $sap_xep[3]['voucher_img'] ?>" alt="img">
                                        </div>
                                    </div>
 
 
                                    <div class="aa-single-promo-right ">
                                        <div class="aa-promo-banner">
-                                           <img src="../../content/images/voucher/<?= $loai_hang[1]['voucher_img'] ?>" alt="img">
+                                           <img src="../../content/images/voucher/<?=  $sap_xep[1]['voucher_img'] ?>" alt="img">
                                        </div>
                                    </div>
                                </div>

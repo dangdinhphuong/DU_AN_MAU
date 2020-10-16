@@ -31,7 +31,7 @@ if (exist_param("btn_submit")) {
         }
         
         if(!isset($_SESSION['mai'])){           
-            $errors['email'] = "Tên loại ko tồn tại";
+            $errors['email'] = "Email ko tồn tại";
         } unset($_SESSION['mai']);
        
         if (!array_filter($errors)) {

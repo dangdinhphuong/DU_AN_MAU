@@ -51,6 +51,11 @@ function loai_select_all(){
     return pdo_query($sql);
 
 }
+function loai_select_sap_xep(){
+    $sql = "SELECT * FROM `categories` ORDER BY updated_at AND created_at DESC";
+    return pdo_query($sql);
+
+}
 /**
  * Truy vấn một loại theo mã
  * @param int $ma_loai là mã loại cần truy vấn

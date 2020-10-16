@@ -35,9 +35,10 @@
             <tr>
                 <th scope="col">HÌNH ẢNH</th>
                 <td>
-                    <input name="image" type="hidden" value="<?= $image ?>">
+                    <input name="image" type="hidden" value="<?= $image ?>"> <?php ?>
                     <input name="image" type="file"> (<?= $image ?>)
                 <label style="color:red"><?= (isset($errors['image']) ? $errors['image'] : '') ?></label></td>
+               
             </tr>
             <tr>
                 <th scope="col">Đia chỉ</th>

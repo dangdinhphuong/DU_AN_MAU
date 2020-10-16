@@ -1,4 +1,5 @@
-    <!-- menu -->
+<?php $_SESSION['a'] =$_SERVER['REQUEST_URI']?>
+<!-- menu -->
     <section id="menu">
       <div class="container">
         <div class="menu-area">
@@ -185,9 +186,10 @@
                                         ?>
                                     </ul>
                                     <h4>Bình luận sản phẩm</h4>
-                                    <div class="aa-your-rating">
+                                    <div class="aa-your-rating"> 
                                         <!-- review form -->
                                         <form action="index.php?add-binh-luan&id=<?= $items['id'] ?>" method="post" class="aa-review-form">
+                                        
                                             <div class="form-group">
                                                 <label for="message">Bình luận của bạn</label>
                                                 <!-- product_id-> -->

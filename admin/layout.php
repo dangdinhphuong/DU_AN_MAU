@@ -182,7 +182,7 @@ if (!isset($_SESSION['user'])) {
 				</a>
 			</li>
 			<li class="sidebar-nav-item">
-				<a href="<?= $ADMIN_URL ?>/hang-hoa" class="sidebar-nav-link">
+				<a href="<?= $ADMIN_URL ?>/hang-hoa?product&cate_id=1" class="sidebar-nav-link">
 					<div>
 						<i class="fas fa-tasks"></i>
 					</div>

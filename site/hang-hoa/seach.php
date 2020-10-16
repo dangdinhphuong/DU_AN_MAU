@@ -1,4 +1,4 @@
-    <!-- menu -->
+    <!-- menu --><?php $_SESSION['a'] = $_SERVER['REQUEST_URI'] ?>
     <section id="menu">
       <div class="container">
         <div class="menu-area">
@@ -15,7 +15,7 @@
             <div class="navbar-collapse collapse">
               <!-- Left nav -->
               <ul class="nav navbar-nav">
-              <li><a href="<?= $SITE_URL ?>/trang-chinh">Home</a></li>
+                <li><a href="<?= $SITE_URL ?>/trang-chinh">Home</a></li>
                 <?php
                 foreach ($loai_hang as $item) {
                   extract($item);
@@ -32,22 +32,6 @@
       </div>
     </section>
     <!-- / menu -->
-    <!-- catg header banner section -->
-    <section id="aa-catg-head-banner">
-      <img src="../../content/images/banner/<?= $banner['banner']?>" height="300px" width="1920">
-      <div class="aa-catg-head-banner-area">
-        <div class="container">
-          <div class="aa-catg-head-banner-content">
-            <h2>Fashion</h2>
-            <ol class="breadcrumb">
-              <li><a href="<?= $SITE_URL?>/trang-chinh/">Home</a></li>
-              <li class="active">Women</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- / catg header banner section -->
 
     <!-- product category -->
 
@@ -78,15 +62,12 @@
                   <a id="list-catg" href="#"><span class="fa fa-list"></span></a>
                 </div>
               </div>
-              <?php $count = 0;
-              foreach ($count_sp as $iten) {
-                $count++;
-              } ?>
+
               <label for="">Tìm thấy <?php echo "$count" ?> Kết quả</label>
               <div class="aa-product-catg-body">
 
                 <ul class="aa-product-catg">
-
+                <?php if ($count > 0) { ?>
                   <?php foreach ($items as $iten) :
                     extract($iten);
 
@@ -115,7 +96,7 @@
                       </div>
                       <span class="aa-badge aa-sale" href="#">-<?= $sale ?>%</span>
                     </li>
-                  <?php endforeach ?>
+                  <?php endforeach ?><?php } ?>
 
                 </ul>
 
@@ -123,11 +104,11 @@
               <div class="aa-product-catg-pagination">
                 <nav>
                   <ul class="pagination" style="border:none">
-                  <?php if($_SESSION['total_page']>1) {?>
-                 <?php for ($i = 1; $i <= $_SESSION['total_page']; $i++) {?>
-                  <li> <a href="?btn_list_keywords&page_no=<?= $i ?>"style="padding: 10px; text-decoration: none; border:1px solid gray;border-radius: 3px; color: black ;font-size: 13px"><?php echo"$i"?></a></li>
+                    <?php if (isset($_SESSION['total_page'])&&$_SESSION['total_page'] > 1) { ?>
+                      <?php for ($i = 1; $i <= $_SESSION['total_page']; $i++) { ?>
+                        <li> <a href="?btn_list_keywords&page_no=<?= $i ?>" style="padding: 10px; text-decoration: none; border:1px solid gray;border-radius: 3px; color: black ;font-size: 13px"><?php echo "$i" ?></a></li>
                         <!-- echo '<a href="?btn_list&page_no=' . $i . '">' .  . '</a>'; -->
-                    <?php } ?> <?php } ?>
+                      <?php } ?> <?php } unset($_SESSION['total_page']); ?>
                     <!-- <li><a href="#">1</a></li>
                  <li><a href="#">2</a></li>
                  <li><a href="#">3</a></li>

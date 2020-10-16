@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><?php $_SESSION['a'] =$_SERVER['REQUEST_URI']?> 
 <html>
     <body>
         <div>

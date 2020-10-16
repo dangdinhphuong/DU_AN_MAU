@@ -14,12 +14,16 @@ if (exist_param("btn_insert")) {
     if (isset($_POST) & !empty($_POST)) {
 
         extract($_REQUEST);
-
-        $pattern['name'] = "/([^\d]*)\s([^\d]*)/i";
+        $cname=strlen($name);
+        $pattern['name'] = "/^([a-zA-Z ]{3,})$/i";
+        // $pattern['name'] = "/^([^\d]{3,})\s([^\d])$/i";
         if ($name == "") {
             $errors['name'] = " Mời nhập họ và tên";
         } elseif (preg_match($pattern['name'], $name) == 0) {
             $errors['name'] = " nhap ten ko dung";
+        }
+        elseif($cname<4){
+            $errors['name'] = " nhap ten tối thiểu 3 kí tự";
         }
         if ($cate_id == "") {
             $errors['cate_id'] = " chon loai hang";
@@ -30,7 +34,7 @@ if (exist_param("btn_insert")) {
             $_FILES['image']['type'] === 'image/jpeg'
         ) {
 
-            if ($_FILES['image']['size'] <= 2097152 ) {
+            if ($_FILES['image']['size'] <= 1572864  ) {
                 $image = $_FILES['image']['name'];
             } 
             
@@ -168,23 +172,32 @@ else if (exist_param("btn_delete")) {
 } 
 else if (exist_param("btn_list")) {
     $loai_hang = loai_select_all();
-    $hh_cate_id = hang_hoa_select_by_loai($cate_id);
+    $count_sp2= hang_hoa_select_by_loai($cate_id);
+    $count1 = 0;
+    foreach ($count_sp2 as $iten) {
+        $count1++;
+      }
+    // $hh_cate_id = hang_hoa_select_by_loai($cate_id);
     $row_per = 4; //so ban ghi
-    $items =  hang_hoa_select_by_loai_page($cate_id);
+    if($count1>0){
+    $items =  hang_hoa_select_by_loai_page($cate_id);}
     $VIEW_NAME = "hang-hoa/list.php";
 } 
 else if (exist_param("product")) {
     $loai_hang = loai_select_all();
-    $hh_cate_id = hang_hoa_select_by_loai($cate_id);
+    $count_sp2= hang_hoa_select_by_loai($cate_id);
+    $count1 = 0;
+    foreach ($count_sp2 as $iten) {
+        $count1++;
+      }
+    // $hh_cate_id = hang_hoa_select_by_loai($cate_id);
     $row_per = 4; //so ban ghi
-    $items =  hang_hoa_select_by_loai_page($cate_id);
+    if($count1>0){
+    $items =  hang_hoa_select_by_loai_page($cate_id);}
     $VIEW_NAME = "hang-hoa/list.php";
 }
 else {
-    $loai_hang = loai_select_all();
-    $row_per=4; //so ban ghi
-    $items =  hang_hoa_select_page();
-    $VIEW_NAME = "hang-hoa/list.php";
+    header("location: $ADMIN_URL/hang-hoa/index.php?product&cate_id=1");
 }
 
 if ($VIEW_NAME == "hang-hoa/new.php" || $VIEW_NAME == "hang-hoa/edit.php") {

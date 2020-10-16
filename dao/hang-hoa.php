@@ -12,6 +12,10 @@ function hang_hoa_insert($name,$cate_id,$description,$image,$detail,$price,$sale
     pdo_execute($sql, $name,$cate_id,$description,$image,$detail,$price,$sale,$status,$view,$created_at,$updated_at,$id);
 
 }
+function content_insert($pro_id,$content,$created_at){
+    $sql = "INSERT INTO `content` (`pro_id`, `content`, `created_at`) VALUES (?, ?, ?)";
+    pdo_execute($sql,$pro_id,$content,$created_at);
+}
     function hang_hoa_delete($id){
     $sql = "DELETE FROM products WHERE  id=?";
     if(is_array($id)){
@@ -36,7 +40,6 @@ function count_id_all(){
     function hang_hoa_select_by_id($id){
     $sql = "SELECT * FROM products WHERE id=?";
     return pdo_query_one($sql, $id);
-
 
     }
     function hang_hoa_exist($id){
@@ -85,6 +88,7 @@ function count_id_all(){
 
     function hang_hoa_select_page(){
     global $row_per;
+    
     $row_per_page=$row_per; //so ban ghi
     $current_page=exist_param("page_no")?$_REQUEST['page_no']:1;
     $total_row=pdo_query_value("SELECT count(*) FROM products WHERE sale >=20");//Dem so ban ghi
@@ -126,6 +130,7 @@ $_SESSION['next_page']=($current_page<$total_page)?($current_page+1):$total_page
 }
 
 function hang_hoa_select_by_loai_page($cate_id){
+    unset($_SESSION['total_page_loai']);
     global $row_per;
     $row_per_page=$row_per; //so ban ghi
     $current_page=exist_param("page_no")?$_REQUEST['page_no']:1;
@@ -169,17 +174,9 @@ $_SESSION['next_page']=($current_page<$total_page)?($current_page+1):$total_page
     return pdo_query($sql, '%'.$keyword.'%', '%'.$keyword.'%');
 }
 
-
-
-
-
-
-
-
-
 function hang_hoa_select_keyword($keyword){
     $sql = "SELECT hh.name,hh.image,hh.price,hh.sale ,hh.id,hh.cate_id FROM products hh "
-            . " JOIN categories lo ON lo.id=hh.cate_id "
+            . "JOIN categories lo ON lo.id=hh.cate_id "
             . " WHERE hh.name LIKE ? OR lo.name LIKE ?";
     return pdo_query($sql, '%'.$keyword.'%', '%'.$keyword.'%');
 

@@ -3,13 +3,13 @@
 // website nhỏ thì dùng tài khoản miễn phí ok
 // tham khảo cách đăng ký để lấy key https://saophaixoan.net/search-tut?q=sendgrid
 // trong code này chỉ cần lấy key là ok, sau khi gửi thử xong thì verify là ok.
-$SENDGRID_API_KEY='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';
+$SENDGRID_API_KEY='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';
 
 require 'vendor/autoload.php';
 $email = new \SendGrid\Mail\Mail(); 
 ///------- bạn chỉnh sửa các thông tin dưới đây cho phù hợp với mục đích cá nhân
 // Thông tin người gửi
-$email->setFrom("phuongddph10045@fpt.edu.vn", "MRS"); 
+$email->setFrom("phuongddph10045@fpt.edu.vn", "phương dinh"); 
 // Tiêu đề thư
 $email->setSubject("thay pass");
 // Thông tin người nhận

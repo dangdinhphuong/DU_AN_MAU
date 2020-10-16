@@ -1,4 +1,4 @@
-     <!-- menu -->
+<?php $_SESSION['a'] =$_SERVER['REQUEST_URI']?>   <!-- menu -->
      <section id="menu">
          <div class="container">
              <div class="menu-area">
@@ -32,22 +32,7 @@
          </div>
      </section>
      <!-- / menu -->
-     <!-- catg header banner section -->
-     <section id="aa-catg-head-banner">
-         <img src="../../content/images/banner/unnamed.jpg" height="300px" width="1920">
-         <div class="aa-catg-head-banner-area">
-             <div class="container">
-                 <div class="aa-catg-head-banner-content">
-                     <h2>Fashion</h2>
-                     <ol class="breadcrumb">
-                         <li><a href="<?= $SITE_URL ?>/trang-chinh">Home</a></li>
-                         <li class="active">Women</li>
-                     </ol>
-                 </div>
-             </div>
-         </div>
-     </section>
-     <!-- / catg header banner section -->
+
 
      <!-- product category -->
 
@@ -57,22 +42,6 @@
              <div class="row">
                  <div class="col-lg-12 col-md-12 col-12">
                      <div class="aa-product-catg-content">
-                         <div class="aa-product-catg-head">
-                             <div class="aa-product-catg-head-left">
-                                 <form action="index.php" method="post" class="aa-sort-form">
-                                     <label for=""><button name="filter" style="border: none; box-shadow: 0px 0px 5px #515050;">Lọc</button></label>
-                                     <select name="" style="font-size: 15px;">
-                                         <option value="1" selected="Phù hợp nhất">Phù hợp nhất</option>
-                                         <option value="2">Giá từ thấp tới cao</option>
-                                         <option value="3">Giá từ cao tới thấp</option>
-                                     </select>
-                                 </form>
-                             </div>
-                             <div class="aa-product-catg-head-right">
-                                 <a id="grid-catg" href="#"><span class="fa fa-th"></span></a>
-                                 <a id="list-catg" href="#"><span class="fa fa-list"></span></a>
-                             </div>
-                         </div>
                          <div class="aa-product-catg-body" style=" margin-bottom: 20px;">
                                  <table style="max-width: 100%; border-spacing: 0px; width: 100%; color: #242424; font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 14px; text-align: justify;">
                                      <tbody style="box-sizing: border-box;">
@@ -108,6 +77,14 @@
 
                                      </tbody>
                                  </table>
+                         </div>
+                         <div class="aa-product-catg-head">
+                             <div class="aa-product-catg-head-left">
+                                 
+                                     
+                                     <a href="<?= $SITE_URL?>/tai-khoan/cap-nhat-tk.php" for=""><button name="filter" style="text-decoration: none; padding: 10px;background: #218838;border: none;border-radius: 3px; color: #fff ;font-size: 20px"> Sửa thông tin</button></a>
+                                 
+                             </div>
                          </div>
                      </div>
                  </div>

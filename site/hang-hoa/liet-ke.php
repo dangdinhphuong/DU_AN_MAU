@@ -1,4 +1,5 @@
      <!-- menu -->
+     <?php $_SESSION['a'] =$_SERVER['REQUEST_URI']?>
      <section id="menu">
       <div class="container">
         <div class="menu-area">
@@ -80,7 +81,7 @@
            </div>
            <div class="aa-product-catg-body">
              <ul class="aa-product-catg">
-
+             <?php if ($count1 > 0) { ?>
              <?php foreach($hang_hoa_select_page as $iten){extract($iten); ?>
               
                <li style="width: 22.3%; box-shadow: 0px 0px 8px #515050; " >
@@ -107,18 +108,19 @@
                  <span class="aa-badge aa-sale" href="#">-<?= $sale ?>%</span>
                </li>
 
-             <?php } ?>
+             <?php } ?><?php } ?>
              </ul>
 
            </div>
            <div class="aa-product-catg-pagination">
              <nav>
                <ul class="pagination" style="border:none">
-               <?php if($_SESSION['total_page_loai']>1) {?>
+               <?php if(isset($_SESSION['total_page_loai'])&& $_SESSION['total_page_loai']>1) {?>
                  <?php for ($i = 1; $i <= $_SESSION['total_page_loai']; $i++) {?>
                   <li> <a href="?btn_list&page_no=<?= $i ?>&cate_id=<?= $hang_hoa_select_page[0]['cate_id']?>"style="padding: 10px; text-decoration: none; border:1px solid gray;border-radius: 3px; color: black ;font-size: 13px"><?php echo"$i"?></a></li>
                         <!-- echo '<a href="?btn_list&page_no=' . $i . '">' .  . '</a>'; -->
-                    <?php } ?> <?php } ?>
+                       
+                    <?php } ?> <?php } unset($_SESSION['total_page_loai']);  ?>
                  <!-- <li><a href="#">1</a></li>
                  <li><a href="#">2</a></li>
                  <li><a href="#">3</a></li>

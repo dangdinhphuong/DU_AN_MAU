@@ -55,7 +55,7 @@ function add_cookie($name, $value, $day){
  * @param string $name là tên cookie
  */
 // function delete_cookie($name){
-//     add_cookie($name, “, -1);
+//     add_cookie($name, , -1);
 // }
 /**
  * Đọc giá trị cookie
@@ -82,7 +82,6 @@ function check_login(){
         //     return;
         // }
     }
-     $_SESSION['request_uri'] = $_SERVER["REQUEST_URI"];
     if(!isset($_SESSION['user'])){
         header("location: $SITE_URL/tai-khoan/index.php?login");
     }
